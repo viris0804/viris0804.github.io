@@ -1,11 +1,5 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Start</title>
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <meta http-equiv="refresh" content="15">
-
-</head>
+<title>Startpagina</title>
 <style>
 	html {
 		align-items: center;
@@ -16,7 +10,7 @@
 		justify-content: center;
 		margin: 0;
 		background-color: rgb(50, 57, 83);
-    	background-image: url('background.jpg');
+    background-image: url('background.jpg');
 		background-size: cover;
 		background-position: center;
 		height: 100%;
@@ -47,11 +41,11 @@
 
 	nav {
 		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		grid-gap: 1em;
+		grid-row-gap: 1em;
+		grid-template-columns: 1fr 1fr;
 		margin: 0 1em;
 		min-width: 24em;
-		padding: 1em 0;
+		padding: 1em 0
 	}
 
 	select {
@@ -64,18 +58,21 @@
 		appearance: none;
 	}
 
-  	option {
-		background-color: rgb(50, 57, 83);
-		color: #ffffff;
+  option {
+  background-color: rgb(50, 57, 83);
+  color: #ffffff;
+}
+	img {
+		border: 2px solid #313131;
+		height: auto;
+		object-fit: cover;
+		object-position: 50% 100%;
+		width: 8em
 	}
-
 </style>
-<body>
-  
 <nav>
-	
 	<h1>Favorieten</h1>
-	<select onchange="if(this.value) window.open(this.value)">
+	<select id="mySelect" onchange="if(this.value) window.open(this.value)">
 		<option value="">Joost</option>
 		<option value="https://joost-support.4me.com/self-service">Zelfservice | Joost IT Support</option>
 		<option value="https://joostit.sharepoint.com/sites/Joost-IT984/SitePages/Even-voorstellen.aspx">Smoelenboek</option>
@@ -230,5 +227,14 @@
 				<option value="https://nowlearning-nlinst00661134-001.lab.service-now.com/now/nav/ui/home">Snow Lab instance</A>
 			</select>
 </nav>
-</body>
-</html>
+<!-- <img alt="foto" src=library_picture.jpg> -->
+
+<script>
+  function resetSelect() {
+    document.getElementById("mySelect").selectedIndex = 0;
+  }
+  var links = document.querySelectorAll("a");
+  for (var i = 0; i < links.length; i++) {
+    links[i].addEventListener("click", resetSelect);
+  }
+  </script>
